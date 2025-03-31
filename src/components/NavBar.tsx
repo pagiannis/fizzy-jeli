@@ -1,5 +1,6 @@
 import { FaBars } from "react-icons/fa";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import Logo from "../assets/FizzyJeliLogo.png";
 
 interface Props {
   onMenuClick: () => void;
@@ -7,7 +8,7 @@ interface Props {
 
 const NavBar = ({ onMenuClick }: Props) => {
   return (
-    <nav className="bg-white shadow-md p-3 flex justify-between items-center">
+    <nav className="bg-sky-300 shadow-md p-3 flex justify-between items-center">
       <div className="flex tems-center">
         <button
           onClick={onMenuClick}
@@ -15,7 +16,7 @@ const NavBar = ({ onMenuClick }: Props) => {
         >
           <FaBars />
         </button>
-        <h1 className="text-xl font-bold pl-2">FIZZY JELI</h1>
+        <img src={Logo} alt="Fizzy Jeli Logo" className="h-10 pl-2" />
       </div>
       <div>
         <div className="flex items-center space-x-6">
