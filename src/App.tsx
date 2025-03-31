@@ -3,7 +3,7 @@ import NavBar from "./components/NavBar";
 import Sidebar from "./components/SideBar";
 import Footer from "./components/Footer";
 
-const App: React.FC = () => {
+const App = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   return (
