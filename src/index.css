@@ -1,1 +1,6 @@
 @import "tailwindcss";
+@import '@fontsource/chewy';
+
+.font-chewy {
+    font-family: "Chewy", cursive;
+}

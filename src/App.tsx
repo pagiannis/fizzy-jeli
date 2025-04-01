@@ -15,10 +15,12 @@ const App = () => {
       <Sidebar isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
 
       {/* Main Content */}
-      <main className="flex-1 p-5 bg-gray-100">
-        <h1 className="text-3xl font-bold">Welcome to Fizzy Jeli</h1>
-        <p className="mt-2 text-gray-600">
-          Find your favorite fizzy drinks and jellies here!
+      <main className="flex-1 p-5 bg-sky-300 font-chewy">
+        <h1 className="text-3xl font-bold text-pink-100">
+          WELCOME TO FIZZY JELI
+        </h1>
+        <p className="mt-2 text-pink-400">
+          FIND YOUR FAVOURITE FIZZY DRINKS AND JELLIES HERE!
         </p>
       </main>
 

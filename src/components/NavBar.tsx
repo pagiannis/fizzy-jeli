@@ -1,6 +1,11 @@
-import { FaBars } from "react-icons/fa";
+import { ImMenu } from "react-icons/im";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Logo from "../assets/FizzyJeliLogo.png";
+import {
+  PiUserCircleFill,
+  PiHeartStraightFill,
+  PiShoppingCartSimpleFill,
+} from "react-icons/pi";
 
 interface Props {
   onMenuClick: () => void;
@@ -9,30 +14,32 @@ interface Props {
 const NavBar = ({ onMenuClick }: Props) => {
   return (
     <nav className="bg-sky-300 shadow-md p-3 flex justify-between items-center">
-      <div className="flex tems-center">
+      <div className="order-1 tems-center">
         <button
           onClick={onMenuClick}
-          className="text-2xl text-gray-600 pr-4 pl-4 cursor-pointer"
+          className="text-pink-100 pr-4 pl-4 cursor-pointer hover:text-pink-400"
         >
-          <FaBars />
+          <ImMenu className="block sm:hidden pl-2 sm:pl-4" size={40} />
+          <span className="hidden sm:block text-4xl pl-4 font-chewy">MENU</span>
         </button>
-        <img src={Logo} alt="Fizzy Jeli Logo" className="h-10 pl-2" />
       </div>
-      <div>
-        <div className="flex items-center space-x-6">
-          <button className="text-2xl text-gray-600 cursor-pointer hover:text-black">
-            <i className="fas fa-user"></i>
-          </button>
-          <span className="absolute left-1/2 -translate-x-1/2 -top-10 px-2 py-1 text-sm text-white bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity">
-            User
-          </span>
-          <button className="text-2xl text-gray-600 cursor-pointer hover:text-black">
-            <i className="fas fa-heart"></i>
-          </button>
-          <button className="text-2xl text-gray-600 cursor-pointer hover:text-black pr-3">
-            <i className="fas fa-shopping-cart"></i>
-          </button>
-        </div>
+      <div className="order-2">
+        <img
+          src={Logo}
+          alt="Fizzy Jeli Logo"
+          className="h-15 sm:h-25 xl:h-30"
+        />
+      </div>
+      <div className="order-3 items-center space-x-2 sm:space-x-5">
+        <button className="text-2xl text-pink-100 cursor-pointer hover:text-pink-400">
+          <PiUserCircleFill size={35} />
+        </button>
+        <button className="text-2xl text-pink-100 cursor-pointer hover:text-pink-400">
+          <PiHeartStraightFill size={35} />
+        </button>
+        <button className="text-pink-100 cursor-pointer hover:text-pink-400 pr-3">
+          <PiShoppingCartSimpleFill size={35} />
+        </button>
       </div>
     </nav>
   );
