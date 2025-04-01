@@ -14,6 +14,10 @@ const Sidebar = ({ isOpen, onClose }: Props) => {
       }`}
       onClick={onClose}
     >
+      <img
+        src={Logo}
+        className="absolute sm:h-50 left-[calc(50%+10rem)] top-1/2 -translate-x-1/2 -translate-y-1/2"
+      ></img>
       <div
         className={`fixed left-0 top-0 h-full w-full sm:w-80 bg-pink-100 shadow-md transform transition-transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
@@ -46,6 +50,8 @@ const Sidebar = ({ isOpen, onClose }: Props) => {
             FAQ
           </a>
         </nav>
+
+        {/* Logo appears on the bottom of menu when on phone screen */}
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-21 block sm:hidden">
           <img src={Logo} alt="Fizzy Jeli Logo" className="w-full" />
         </div>
