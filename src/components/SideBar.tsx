@@ -1,4 +1,5 @@
 import { FaTimes } from "react-icons/fa";
+import Logo from "../assets/FizzyJeliLogo.png";
 
 interface Props {
   isOpen: boolean;
@@ -28,7 +29,7 @@ const Sidebar = ({ isOpen, onClose }: Props) => {
         </button>
 
         {/* Sidebar Menu */}
-        <nav className="mt-10 space-y-4 text-xl text-pink-400 font-chewy">
+        <nav className="mt-10 space-y-4 text-3xl text-pink-400 font-chewy">
           <a href="#" className="block p-4 mt-15 hover:bg-pink-200">
             HOME
           </a>
@@ -45,6 +46,9 @@ const Sidebar = ({ isOpen, onClose }: Props) => {
             FAQ
           </a>
         </nav>
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-21 block sm:hidden">
+          <img src={Logo} alt="Fizzy Jeli Logo" className="w-full" />
+        </div>
       </div>
     </div>
   );
