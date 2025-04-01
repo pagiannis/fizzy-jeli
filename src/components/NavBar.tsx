@@ -1,4 +1,3 @@
-import { ImMenu } from "react-icons/im";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Logo from "../assets/FizzyJeliLogo.png";
 import {
