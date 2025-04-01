@@ -6,6 +6,7 @@ import {
   PiHeartStraightFill,
   PiShoppingCartSimpleFill,
 } from "react-icons/pi";
+import { TiThMenu } from "react-icons/ti";
 
 interface Props {
   onMenuClick: () => void;
@@ -19,7 +20,7 @@ const NavBar = ({ onMenuClick }: Props) => {
           onClick={onMenuClick}
           className="text-pink-100 pr-4 pl-4 cursor-pointer hover:text-pink-400"
         >
-          <ImMenu className="block sm:hidden pl-2 sm:pl-4" size={40} />
+          <TiThMenu className="block sm:hidden pl-2 sm:pl-4" size={40} />
           <span className="hidden sm:block text-4xl pl-4 font-chewy">MENU</span>
         </button>
       </div>
