@@ -13,7 +13,7 @@ interface Props {
 
 const NavBar = ({ onMenuClick }: Props) => {
   return (
-    <nav className="bg-sky-300 shadow-md p-3 flex justify-between items-center">
+    <nav className="bg-sky-300 p-3 flex justify-between items-center">
       <div className="order-1 tems-center">
         <button
           onClick={onMenuClick}
