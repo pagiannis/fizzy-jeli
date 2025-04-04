@@ -7,13 +7,16 @@ const HomeDiv = () => {
         className="absolute inset-0 bg-cover bg-center rounded-lg mt-18 mb-18 ml-50 mr-50"
         style={{ backgroundImage: `url(${HomeScreenImg})` }}
       >
-        <div className="text-white font-chewy">
-          <h1 className="text-5xl sm:text-6xl font-bold">"Forest Jellies"</h1>
-          <h1 className="text-5xl sm:text-6xl font-bold">COLLECTION</h1>
-          <h1 className="text-5xl sm:text-6xl font-bold">OUT NOW</h1>
-          <button className="mt-6 inline-block bg-white hover:bg-white text-pink-400 font-semibold py-3 px-6 rounded-lg cursor-pointer">
-            SHOP NOW
-          </button>
+        <div className="relative container mx-auto h-full grid grid-cols-2 items-center">
+          <div></div>
+          <div className="text-white font-chewy p-8">
+            <h1 className="text-5xl sm:text-6xl font-bold">"Forest Jellies"</h1>
+            <h1 className="text-5xl sm:text-6xl font-bold">COLLECTION</h1>
+            <h1 className="text-5xl sm:text-6xl font-bold">OUT NOW</h1>
+            <button className="mt-6 inline-block bg-white hover:bg-white text-pink-400 font-semibold py-3 px-6 rounded-lg cursor-pointer">
+              SHOP NOW
+            </button>
+          </div>
         </div>
       </div>
     </div>
