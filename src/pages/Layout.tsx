@@ -1,8 +1,8 @@
 import { useState } from "react";
-import NavBar from "./components/NavBar";
-import Sidebar from "./components/SideBar";
-import Footer from "./components/Footer";
-import HomeDiv from "./components/HomeDiv";
+import { Outlet } from "react-router-dom";
+import NavBar from "../components/NavBar";
+import Sidebar from "../components/SideBar";
+import Footer from "../components/Footer";
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -16,8 +16,7 @@ const App = () => {
       <Sidebar isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
 
       {/* Main Content */}
-      <HomeDiv />
-
+      <Outlet />
       {/* Footer */}
       <Footer />
     </div>
