@@ -1,5 +1,6 @@
 import { FaTimes } from "react-icons/fa";
 import Logo from "../assets/FizzyJeliLogo.png";
+import { Link } from "react-router-dom";
 
 interface Props {
   isOpen: boolean;
@@ -34,21 +35,21 @@ const Sidebar = ({ isOpen, onClose }: Props) => {
 
         {/* Sidebar Menu */}
         <nav className="mt-10 space-y-4 text-3xl text-pink-400 font-chewy">
-          <a href="#" className="block p-4 mt-15 hover:bg-pink-200">
+          <Link to="/" className="block p-4 mt-15 hover:bg-pink-200">
             HOME
-          </a>
-          <a href="#" className="block p-4 hover:bg-pink-200">
+          </Link>
+          <Link to="/shop" className="block p-4 hover:bg-pink-200">
             SHOP
-          </a>
-          <a href="#" className="block p-4 hover:bg-pink-200">
+          </Link>
+          <Link to="/about" className="block p-4 hover:bg-pink-200">
             ABOUT
-          </a>
-          <a href="#" className="block p-4 hover:bg-pink-200">
+          </Link>
+          <Link to="/contact" className="block p-4 hover:bg-pink-200">
             CONTACT
-          </a>
-          <a href="#" className="block p-4 hover:bg-pink-200">
+          </Link>
+          <Link to="/faq" className="block p-4 hover:bg-pink-200">
             FAQ
-          </a>
+          </Link>
         </nav>
 
         {/* Logo appears on the bottom of menu when on phone screen */}
