@@ -1,9 +1,5 @@
-import React from 'react'
-
 const ShopPage = () => {
-  return (
-    <div>ShopPage</div>
-  )
-}
+  return <div className="flex-1">ShopPage</div>;
+};
 
-export default ShopPage
+export default ShopPage;
