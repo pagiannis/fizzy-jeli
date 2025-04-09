@@ -6,6 +6,7 @@ import {
   PiShoppingCartSimpleFill,
 } from "react-icons/pi";
 import { TiThMenu } from "react-icons/ti";
+import { Link } from "react-router-dom";
 
 interface Props {
   onMenuClick: () => void;
@@ -24,11 +25,13 @@ const NavBar = ({ onMenuClick }: Props) => {
         </button>
       </div>
       <div className="order-2">
-        <img
-          src={Logo}
-          alt="Fizzy Jeli Logo"
-          className="h-15 sm:h-25 xl:h-30 hidden sm:block"
-        />
+        <Link to="/">
+          <img
+            src={Logo}
+            alt="Fizzy Jeli Logo"
+            className="h-15 sm:h-25 xl:h-30 hidden sm:block"
+          />
+        </Link>
       </div>
       <div className="order-3 items-center space-x-2 sm:space-x-5">
         <button className="text-2xl text-pink-100 cursor-pointer hover:text-pink-400">
