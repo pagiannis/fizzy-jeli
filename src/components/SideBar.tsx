@@ -35,19 +35,39 @@ const Sidebar = ({ isOpen, onClose }: Props) => {
 
         {/* Sidebar Menu */}
         <nav className="mt-10 space-y-4 text-3xl text-pink-400 font-chewy">
-          <Link to="/" className="block p-4 mt-15 hover:bg-pink-200">
+          <Link
+            to="/"
+            className="block p-4 mt-15 hover:bg-pink-200"
+            onClick={onClose}
+          >
             HOME
           </Link>
-          <Link to="/shop" className="block p-4 hover:bg-pink-200">
+          <Link
+            to="/shop"
+            className="block p-4 hover:bg-pink-200"
+            onClick={onClose}
+          >
             SHOP
           </Link>
-          <Link to="/about" className="block p-4 hover:bg-pink-200">
+          <Link
+            to="/about"
+            className="block p-4 hover:bg-pink-200"
+            onClick={onClose}
+          >
             ABOUT
           </Link>
-          <Link to="/contact" className="block p-4 hover:bg-pink-200">
+          <Link
+            to="/contact"
+            className="block p-4 hover:bg-pink-200"
+            onClick={onClose}
+          >
             CONTACT
           </Link>
-          <Link to="/faq" className="block p-4 hover:bg-pink-200">
+          <Link
+            to="/faq"
+            className="block p-4 hover:bg-pink-200"
+            onClick={onClose}
+          >
             FAQ
           </Link>
         </nav>
