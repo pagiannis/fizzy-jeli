@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import HomeScreenImg from "../assets/HomeScreenImg.png";
 
 const HomeDiv = () => {
@@ -21,7 +22,7 @@ const HomeDiv = () => {
               OUT NOW
             </h1>
             <button className="mt-4 sm:mt-5 md:mt-6 inline-block bg-white hover:bg-white text-pink-400 font-semibold py-2 px-4 sm:py-2.5 sm:px-5 md:py-3 md:px-6 rounded-lg cursor-pointer">
-              SHOP NOW
+              <Link to={"/shop"}>SHOP NOW</Link>
             </button>
           </div>
         </div>
