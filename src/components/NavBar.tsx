@@ -29,7 +29,7 @@ const NavBar = ({ onMenuClick }: Props) => {
           <img
             src={Logo}
             alt="Fizzy Jeli Logo"
-            className="h-15 sm:h-25 xl:h-30 hidden sm:block"
+            className="h-15 sm:h-25 xl:h-30 hidden sm:block select-none drag-none"
           />
         </Link>
       </div>

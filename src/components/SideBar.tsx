@@ -17,7 +17,7 @@ const Sidebar = ({ isOpen, onClose }: Props) => {
     >
       <img
         src={Logo}
-        className="absolute sm:h-50 left-[calc(50%+10rem)] top-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="absolute sm:h-50 left-[calc(50%+10rem)] top-1/2 -translate-x-1/2 -translate-y-1/2 select-none cursor-default drag-none"
       ></img>
       <div
         className={`fixed left-0 top-0 h-full w-full sm:w-80 bg-pink-100 shadow-md transform transition-transform ${
