@@ -18,7 +18,7 @@ const NavBar = ({ onMenuClick }: Props) => {
       <div className="order-1 tems-center">
         <button
           onClick={onMenuClick}
-          className="text-pink-100 pr-4 pl-4 cursor-pointer hover:text-pink-400"
+          className="text-pink-100 pr-4 pl-4 cursor-pointer hover:text-pink-400 select-none drag-none"
         >
           <TiThMenu className="block sm:hidden pl-2 sm:pl-4" size={40} />
           <span className="hidden sm:block text-4xl pl-4 font-chewy">MENU</span>
@@ -33,7 +33,7 @@ const NavBar = ({ onMenuClick }: Props) => {
           />
         </Link>
       </div>
-      <div className="order-3 items-center space-x-2 sm:space-x-5">
+      <div className="order-3 items-center space-x-2 sm:space-x-5 select-none drag-none">
         <button className="text-2xl text-pink-100 cursor-pointer hover:text-pink-400">
           <PiUserCircleFill size={35} />
         </button>
