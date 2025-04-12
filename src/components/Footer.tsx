@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="bg-sky-300 text-white text-base sm:text-lg p-4 text-center font-serif font-bold">
+    <footer className="bg-sky-300 text-white text-base sm:text-lg p-4 text-center font-serif font-bold select-none drag-none">
       &copy; {new Date().getFullYear()} FIZZY JELI
     </footer>
   );
