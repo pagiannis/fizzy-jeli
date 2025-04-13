@@ -1,22 +1,7 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
-
-interface Product {
-  _id: string;
-  name: string;
-  price: number;
-}
+import useProducts from "../hooks/useProducts";
 
 const ShopGrid = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    apiClient
-      .get<Product[]>("/products")
-      .then((res) => setProducts(res.data))
-      .catch((err) => setError(err.message));
-  }, []);
+  const { products, error } = useProducts();
 
   return (
     <ul>
