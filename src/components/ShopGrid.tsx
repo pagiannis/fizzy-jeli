@@ -1,17 +1,16 @@
 import useProducts from "../hooks/useProducts";
+import ProductCard from "./ProductCard";
 
 const ShopGrid = () => {
   const { products, error } = useProducts();
 
   return (
-    <ul>
+    <div className="grid grid-clos-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
       {products.map((product) => (
-        <li key={product._id} className="p-4">
-          <h2 className="text-xl font-bold">{product.name}</h2>
-        </li>
+        <ProductCard key={product._id} product={product} />
       ))}
       {error && <p className="text-red-500 text-center pt-10">{error}</p>}
-    </ul>
+    </div>
   );
 };
 
