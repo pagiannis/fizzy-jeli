@@ -25,7 +25,7 @@ const ShopGrid = () => {
           <h2 className="text-xl font-bold">{product.name}</h2>
         </li>
       ))}
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="text-red-500 text-center pt-10">{error}</p>}
     </ul>
   );
 };
