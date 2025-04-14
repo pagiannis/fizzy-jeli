@@ -20,7 +20,7 @@ const ProductCard = ({ product }: Props) => {
 
   return (
     <div
-      className="relative overflow-hidden group h-full w-full bg-purple-200 rounded-lg"
+      className="relative overflow-hidden group h-full w-full bg-purple-200 rounded-lg select-none drag-none"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
