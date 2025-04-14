@@ -20,18 +20,18 @@ const ProductCard = ({ product }: Props) => {
 
   return (
     <div
-      className="relative overflow-hidden group h-full w-full bg-gradient-to-br from-blue-50/40 to-cyan-100/30"
+      className="relative overflow-hidden group h-full w-full bg-purple-200 rounded-lg"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Enhanced water background - now more visible */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden ">
         <div
           className="absolute -bottom-6 -left-4 w-[120%] h-[80%]"
           style={{
-            background: `linear-gradient(160deg, rgba(200,240,255,0.5) 0%, rgba(150,220,255,0.7) 100%)`,
+            background: `linear-gradient(160deg, rgba(238, 130, 207, 0.74) 0%, rgb(177, 124, 247) 100%)`,
             borderRadius: isHovered
-              ? "40% 60% 45% 55% / 60% 35% 65% 40%"
+              ? "20% 60% 45% 55% / 60% 35% 65% 40%"
               : "50% 50% 60% 40% / 55% 45% 55% 45%",
             transform: isHovered ? "translateY(6px) scaleX(1.08)" : "none",
             transition: "all 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55)",
@@ -43,7 +43,7 @@ const ProductCard = ({ product }: Props) => {
       {bubbles.map((bubble) => (
         <div
           key={bubble.id}
-          className="absolute rounded-full bg-white/40 backdrop-blur-[1px] pointer-events-none"
+          className="absolute rounded-full bg-white/70 backdrop-blur-[1px] pointer-events-none"
           style={{
             width: bubble.size,
             height: bubble.size,
@@ -51,7 +51,7 @@ const ProductCard = ({ product }: Props) => {
             bottom: "-15px",
             animation: `float ${bubble.duration} ease-in ${bubble.delay} infinite`,
             opacity: 0,
-            boxShadow: "0 0 8px rgba(255,255,255,0.5)",
+            boxShadow: "0 0 8px rgba(136, 0, 255, 0.5)",
           }}
         />
       ))}
