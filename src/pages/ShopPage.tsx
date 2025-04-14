@@ -1,4 +1,4 @@
-import ShopGrid from "../components/ShopGrid";
+import ShopGrid from "../components/shop/ShopGrid";
 
 const ShopPage = () => {
   return (

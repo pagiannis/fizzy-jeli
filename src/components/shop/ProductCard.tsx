@@ -1,4 +1,4 @@
-import { Product } from "../hooks/useProducts";
+import { Product } from "../../hooks/useProducts";
 import { useState } from "react";
 
 interface Props {

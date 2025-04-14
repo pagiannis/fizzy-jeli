@@ -1,5 +1,5 @@
-import useProducts from "../hooks/useProducts";
-import ProductCard from "./ProductCard";
+import useProducts from "../../hooks/useProducts";
+import ProductCard from "../shop/ProductCard";
 
 const ShopGrid = () => {
   const { products, error } = useProducts();
