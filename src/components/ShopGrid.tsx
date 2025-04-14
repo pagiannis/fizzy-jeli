@@ -5,7 +5,7 @@ const ShopGrid = () => {
   const { products, error } = useProducts();
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6 p-1 sm:p-2 md:p-5 lg:p-15">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-8 sm:p-3 md:p-10 lg:p-6 xl:p-15">
       {products.map((product) => (
         <ProductCard key={product._id} product={product} />
       ))}
