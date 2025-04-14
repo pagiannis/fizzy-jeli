@@ -1,23 +1,36 @@
 import { Product } from "../hooks/useProducts";
+import { useState } from "react";
 
 interface Props {
   product: Product;
 }
 
 const ProductCard = ({ product }: Props) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div className="border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow select-none drag-none">
-      <img
-        src={product.image}
-        alt={product.name}
-        className="w-full h-48 object-cover"
+    <div
+      className="relative overflow-hidden group"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Domed background container */}
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-gray-100 to-gray-300 
+                      rounded-t-full h-[70%] top-[30%] opacity-50 group-hover:opacity-30
+                      transition-opacity duration-500"
       />
-      <div className="p-4">
-        <h3 className="font-semibold text-lg">{product.name}</h3>
-        <p className="text-gray-600 mt-2">${product.price}</p>
-        <button className="mt-4 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
-          Add to Cart
-        </button>
+
+      {/* Product image */}
+      <div className="relative z-10">
+        <img
+          src={
+            isHovered ? product.secondaryImage || product.image : product.image
+          }
+          alt={product.name}
+          className="w-full h-64 object-contain transition-all duration-500
+                    mix-blend-multiply group-hover:mix-blend-normal"
+        />
       </div>
     </div>
   );
