@@ -1,35 +1,11 @@
-import { useRef } from "react";
+import { FieldValues, useForm } from "react-hook-form";
 
 const ContactForm = () => {
-  const nameRef = useRef<HTMLInputElement>(null);
-  const subjectRef = useRef<HTMLInputElement>(null);
-  const emailRef = useRef<HTMLInputElement>(null);
-  const messageRef = useRef<HTMLTextAreaElement>(null);
-  const formData = {
-    name: "",
-    subject: "",
-    email: "",
-    message: "",
-  };
+  const { register, handleSubmit } = useForm();
 
-  const hangleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    if (nameRef.current !== null) {
-      formData.name = nameRef.current.value;
-    }
-    if (subjectRef.current !== null) {
-      formData.subject = subjectRef.current.value;
-    }
-    if (emailRef.current !== null) {
-      formData.email = emailRef.current.value;
-    }
-    if (messageRef.current !== null) {
-      formData.message = messageRef.current.value;
-    }
-    console.log(formData);
-
-    // Reset form fields
-    
+  const onSubmit = (data: FieldValues) => {
+    console.log(data);
+    // Handle form submission logic here
   };
 
   return (
@@ -43,14 +19,14 @@ const ContactForm = () => {
             </h2>
           </div>
 
-          <form className="space-y-5" onSubmit={hangleSubmit}>
+          <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
             {/* Name Input */}
             <div className="space-y-1">
               <label className="block text-md font-medium text-pink-500 ml-4">
                 Name
               </label>
               <input
-                ref={nameRef}
+                {...register("name")}
                 id="name"
                 type="text"
                 className="text-pink-500 w-full px-4 py-2 border border-pink-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
@@ -64,7 +40,7 @@ const ContactForm = () => {
                 Subject
               </label>
               <input
-                ref={subjectRef}
+                {...register("subject")}
                 id="subject"
                 type="text"
                 className="text-pink-500 w-full px-4 py-2 border border-pink-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
@@ -78,7 +54,7 @@ const ContactForm = () => {
                 Email
               </label>
               <input
-                ref={emailRef}
+                {...register("email")}
                 id="email"
                 type="email"
                 className="text-pink-500 w-full px-4 py-2 border border-pink-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
@@ -92,7 +68,7 @@ const ContactForm = () => {
                 Message
               </label>
               <textarea
-                ref={messageRef}
+                {...register("message")}
                 id="message"
                 rows={4}
                 className="text-pink-500 w-full px-4 py-2 border border-pink-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
