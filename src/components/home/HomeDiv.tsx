@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import HomeScreenImg from "../assets/HomeScreenImg.png";
+import HomeScreenImg from "../../assets/HomeScreenImg.png";
 
 const HomeDiv = () => {
   return (

@@ -3,6 +3,9 @@ import Layout from "./pages/Layout";
 import HomePage from "./pages/HomePage";
 import ShopPage from "./pages/ShopPage";
 import ErrorPage from "./pages/ErrorPage";
+import ContactPage from "./pages/ContactPage";
+import AboutPage from "./pages/AboutPage";
+import FaqPage from "./pages/FaqPage";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +20,18 @@ const router = createBrowserRouter([
       {
         path: "/shop",
         element: <ShopPage />,
+      },
+      {
+        path: "/about",
+        element: <AboutPage />,
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />,
+      },
+      {
+        path: "/faq",
+        element: <FaqPage />,
       },
     ],
   },

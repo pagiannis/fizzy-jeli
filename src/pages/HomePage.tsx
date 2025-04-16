@@ -1,4 +1,4 @@
-import HomeDiv from "../components/HomeDiv";
+import HomeDiv from "../components/home/HomeDiv";
 
 const HomePage = () => {
   return <HomeDiv />;
