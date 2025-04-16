@@ -1,5 +1,5 @@
 const FaqDiv = () => {
-  return <div>FaqDiv</div>;
+  return <div className="select-none drag-none">FaqDiv</div>;
 };
 
 export default FaqDiv;

@@ -2,7 +2,7 @@
 
 const AboutDiv = () => {
   return (
-    <div>AboutDiv</div>
+    <div className="select-none drag-none">AboutDiv</div>
   )
 }
 
