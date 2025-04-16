@@ -18,10 +18,10 @@ const NavBar = ({ onMenuClick }: Props) => {
       <div className="order-1 tems-center">
         <button
           onClick={onMenuClick}
-          className="text-pink-100 pr-4 pl-4 cursor-pointer hover:text-pink-400 select-none drag-none"
+          className="text-pink-100 pr-4 cursor-pointer hover:text-pink-400 select-none drag-none"
         >
           <TiThMenu className="block sm:hidden pl-2 sm:pl-4" size={40} />
-          <span className="hidden sm:block text-4xl pl-4 font-chewy">MENU</span>
+          <span className="hidden sm:block text-4xl pl-8 font-chewy">MENU</span>
         </button>
       </div>
       <div className="order-2">
@@ -33,15 +33,15 @@ const NavBar = ({ onMenuClick }: Props) => {
           />
         </Link>
       </div>
-      <div className="order-3 items-center space-x-2 sm:space-x-5 select-none drag-none">
+      <div className="order-3 items-center space-x-2 sm:space-x-4 select-none drag-none">
         <button className="text-2xl text-pink-100 cursor-pointer hover:text-pink-400">
-          <PiUserCircleFill size={35} />
+          <PiUserCircleFill size={34} />
         </button>
         <button className="text-2xl text-pink-100 cursor-pointer hover:text-pink-400">
-          <PiHeartStraightFill size={35} />
+          <PiHeartStraightFill size={34} />
         </button>
-        <button className="text-pink-100 cursor-pointer hover:text-pink-400 pr-3">
-          <PiShoppingCartSimpleFill size={35} />
+        <button className="text-pink-100 cursor-pointer hover:text-pink-400 pr-2 sm:pr-4 md:pr-6 lg:pr-8">
+          <PiShoppingCartSimpleFill size={34} />
         </button>
       </div>
     </nav>
