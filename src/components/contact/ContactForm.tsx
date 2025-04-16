@@ -15,6 +15,7 @@ const ContactForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<ContactFormData>({ resolver: zodResolver(schema) });
 
@@ -34,7 +35,10 @@ const ContactForm = () => {
             </h2>
           </div>
 
-          <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
+          <form className="space-y-5" onSubmit={handleSubmit(data => {
+            onSubmit(data);
+            reset();
+          })}>
             {/* Name Input */}
             <div className="space-y-1">
               <label className="block text-md font-medium text-pink-500 ml-4">
