@@ -1,7 +1,22 @@
 import { FieldValues, useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const schema = z.object({
+  name: z.string().min(3, { message: "Name must be at least 3 characters" }),
+  subject: z.string(),
+  email: z.string().email(),
+  message: z.string(),
+});
+
+type ContactFormData = z.infer<typeof schema>;
 
 const ContactForm = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ContactFormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = (data: FieldValues) => {
     console.log(data);
@@ -32,6 +47,9 @@ const ContactForm = () => {
                 className="text-pink-500 w-full px-4 py-2 border border-pink-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
                 placeholder="Name"
               />
+              {errors.name && (
+                <p className="text-red-500 ml-4">{errors.name.message}</p>
+              )}
             </div>
 
             {/* Subject Input */}
@@ -46,6 +64,9 @@ const ContactForm = () => {
                 className="text-pink-500 w-full px-4 py-2 border border-pink-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
                 placeholder="Subject"
               />
+              {errors.subject && (
+                <p className="text-red-500 ml-4">{errors.subject.message}</p>
+              )}
             </div>
 
             {/* Email Input */}
@@ -60,6 +81,9 @@ const ContactForm = () => {
                 className="text-pink-500 w-full px-4 py-2 border border-pink-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
                 placeholder="Email"
               />
+              {errors.email && (
+                <p className="text-red-500 ml-4">{errors.email.message}</p>
+              )}
             </div>
 
             {/* Textarea for message*/}
@@ -74,6 +98,9 @@ const ContactForm = () => {
                 className="text-pink-500 w-full px-4 py-2 border border-pink-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
                 placeholder="Message"
               ></textarea>
+              {errors.message && (
+                <p className="text-red-500 ml-4">{errors.message.message}</p>
+              )}
             </div>
 
             {/* Submit Button */}
