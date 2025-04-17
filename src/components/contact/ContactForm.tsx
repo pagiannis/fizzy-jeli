@@ -4,7 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 const schema = z.object({
   name: z.string().min(3, { message: "Name must be at least 3 characters" }),
-  subject: z.string().min(3, { message: "Subject must be at least 3 characters" }),
+  subject: z
+    .string()
+    .min(3, { message: "Subject must be at least 3 characters" }),
   email: z.string().email({ message: "Invalid email address" }),
   message: z.string(),
 });
@@ -31,7 +33,7 @@ const ContactForm = () => {
           {/* Form Header */}
           <div className="p-6 text-center">
             <h2 className="text-4xl font-bold text-pink-400 font-chewy mb-6 text-center">
-              CONTUCT US
+              CONTACT US
             </h2>
           </div>
 
