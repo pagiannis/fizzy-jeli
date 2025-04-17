@@ -25,7 +25,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="flex items-center justify-center p-4 font-serif">
+    <div className="flex items-center justify-center p-10 font-serif">
       <div className="w-full max-w-2xl">
         <div className="bg-purple-200 rounded-2xl shadow-md overflow-hidden select-none drag-none p-10">
           {/* Form Header */}
