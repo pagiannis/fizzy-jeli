@@ -4,8 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 const schema = z.object({
   name: z.string().min(3, { message: "Name must be at least 3 characters" }),
-  subject: z.string(),
-  email: z.string().email(),
+  subject: z.string().min(3, { message: "Subject must be at least 3 characters" }),
+  email: z.string().email({ message: "Invalid email address" }),
   message: z.string(),
 });
 
@@ -25,7 +25,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="h-[calc(100vh-4rem)] flex items-center justify-center p-4 font-serif">
+    <div className="flex items-center justify-center p-4 font-serif">
       <div className="w-full max-w-2xl">
         <div className="bg-purple-200 rounded-2xl shadow-md overflow-hidden select-none drag-none p-10">
           {/* Form Header */}
@@ -35,10 +35,13 @@ const ContactForm = () => {
             </h2>
           </div>
 
-          <form className="space-y-5" onSubmit={handleSubmit(data => {
-            onSubmit(data);
-            reset();
-          })}>
+          <form
+            className="space-y-5"
+            onSubmit={handleSubmit((data) => {
+              onSubmit(data);
+              reset();
+            })}
+          >
             {/* Name Input */}
             <div className="space-y-1">
               <label className="block text-md font-medium text-pink-500 ml-4">
