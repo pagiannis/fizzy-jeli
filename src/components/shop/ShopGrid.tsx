@@ -1,5 +1,6 @@
 import useProducts from "../../hooks/useProducts";
 import ProductCard from "../shop/ProductCard";
+import ErrorMessage from "../ui/ErrorMessage";
 
 const ShopGrid = () => {
   const { products, error } = useProducts();
@@ -9,7 +10,7 @@ const ShopGrid = () => {
       {products.map((product) => (
         <ProductCard key={product._id} product={product} />
       ))}
-      {error && <p className="text-red-500 text-center pt-10">{error}</p>}
+      <ErrorMessage error={error} />
     </div>
   );
 };
