@@ -39,7 +39,7 @@ const ProductCard = ({ product }: Props) => {
         />
       </div>
 
-      {/* More prominent bubbles */}
+      {/* bubbles */}
       {bubbles.map((bubble) => (
         <div
           key={bubble.id}
