@@ -1,34 +1,34 @@
-import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
-import { CanceledError } from "axios";
+import { useQuery } from "@tanstack/react-query";
 
 export interface Product {
   _id: string;
   name: string;
   price: number;
   image: string;
-  secondaryImage: string;
+  secondaryImage?: string;
 }
 
 const useProducts = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [error, setError] = useState("");
+  const fetchProducts = async () => {
+    try {
+      const response = await apiClient.get<Product[]>("/products");
+      return response.data;
+    } catch (error) {
+      throw new Error("Failed to fetch products");
+    }
+  };
+  
+  const { 
+    data : products, 
+    error, 
+    isLoading
+  } = useQuery<Product[], Error>({
+    queryKey: ["products"],
+    queryFn: fetchProducts
+  })
 
-  useEffect(() => {
-    const controller = new AbortController();
-
-    apiClient
-      .get<Product[]>("/products", {signal: controller.signal})
-      .then((res) => setProducts(res.data))
-      .catch((err) => {
-        if (err instanceof CanceledError) return;
-        setError(err.message)
-     });
-
-    return () => controller.abort();
-  }, []);
-
-  return { products, error };
+  return { products, error, isLoading };
 }
 
 export default useProducts;
