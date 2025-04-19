@@ -1,20 +1,7 @@
-import { FieldValues, useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { useContactForm } from "../../hooks/useContactForm";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
 import Textarea from "../ui/Textarea";
-
-const schema = z.object({
-  name: z.string().min(3, { message: "Name must be at least 3 characters" }),
-  subject: z
-    .string()
-    .min(3, { message: "Subject must be at least 3 characters" }),
-  email: z.string().email({ message: "Invalid email address" }),
-  message: z.string(),
-});
-
-type ContactFormData = z.infer<typeof schema>;
 
 const ContactForm = () => {
   const {
@@ -22,12 +9,8 @@ const ContactForm = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<ContactFormData>({ resolver: zodResolver(schema) });
-
-  const onSubmit = (data: FieldValues) => {
-    console.log(data);
-    // Handle form submission logic here
-  };
+    onSubmit,
+  } = useContactForm();
 
   return (
     <div className="flex items-center justify-center p-10 font-serif">
