@@ -25,7 +25,8 @@ const useProducts = () => {
     isLoading
   } = useQuery<Product[], Error>({
     queryKey: ["products"],
-    queryFn: fetchProducts
+    queryFn: fetchProducts,
+    staleTime: 1 * 60 * 1000 // 1 minute cache
   })
 
   return { products, error, isLoading };
