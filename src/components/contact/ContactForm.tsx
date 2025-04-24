@@ -7,8 +7,7 @@ const ContactForm = () => {
   const {
     register,
     handleSubmit,
-    reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     onSubmit,
   } = useContactForm();
 
@@ -23,13 +22,7 @@ const ContactForm = () => {
             </h2>
           </div>
 
-          <form
-            className="space-y-5"
-            onSubmit={handleSubmit((data) => {
-              onSubmit(data);
-              reset();
-            })}
-          >
+          <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
             {/* Name Input */}
             <Input
               label="Name"
@@ -67,7 +60,9 @@ const ContactForm = () => {
             />
 
             {/* Submit Button */}
-            <Button type="submit">Submit</Button>
+            <Button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Sending..." : "Submit"}
+            </Button>
           </form>
         </div>
       </div>
