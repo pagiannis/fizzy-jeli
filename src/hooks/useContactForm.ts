@@ -9,15 +9,14 @@ export const useContactForm = () => {
     resolver: zodResolver(contactFormSchema),
   });
 
-  const mutation = useMutation({
+  const mutation = useMutation<ContactFormData, Error, ContactFormData>({
     mutationFn: (data: ContactFormData) => 
-      apiClient.post("/contactform", data),
+      apiClient
+        .post("/contactform", data)
+        .then((res) => res.data),
     onSuccess: () => {
       form.reset();
-    },
-    onError: (error) => {
-      console.error("Submission failed:", error);
-      // Optional: Show error toast
+      
     }
   });
 
@@ -29,5 +28,8 @@ export const useContactForm = () => {
     ...form,
     onSubmit,
     isSubmitting: mutation.isPending,
+    isError: mutation.isError,
+    error: mutation.error,
+    isSuccess: mutation.isSuccess,
   };
 };
