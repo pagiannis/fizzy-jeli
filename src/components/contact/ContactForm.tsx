@@ -31,7 +31,7 @@ const ContactForm = () => {
       {isError && <ErrorMessage message={error?.message} />}
       {isSuccess && <SuccessMessage />}
 
-      <CardContainer title="CONTACT">
+      <CardContainer title="CONTACT" width={2}>
         <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
           <Input
             label="Name"
