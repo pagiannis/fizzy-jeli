@@ -51,7 +51,7 @@ const FaqItem = ({ question, answer }: FAQItem) => {
           }`}
         />
       </button>
-      {isOpen && <p className="mt-2 text-pink-500">{answer}</p>}
+      {isOpen && <p className="mt-2 text-pink-600">{answer}</p>}
     </div>
   );
 };
