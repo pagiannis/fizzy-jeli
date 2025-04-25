@@ -78,7 +78,7 @@ const ContactForm = () => {
               {/* Email Input */}
               <Input
                 label="Email"
-                type="email"
+                type="text"
                 {...register("email")}
                 error={errors.email}
                 placeholder="Email"
