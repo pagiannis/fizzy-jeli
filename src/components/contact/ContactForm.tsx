@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
 import Textarea from "../ui/Textarea";
+import { ErrorMessage, SuccessMessage } from "../ui/StatusMessage";
 
 const ContactForm = () => {
   const {
@@ -26,23 +27,8 @@ const ContactForm = () => {
 
   return (
     <>
-      {/* Error Message */}
-      {isError && (
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl relative mb-4 font-serif text-center select-none drag-none mt-5 ml-11 mr-11">
-          <strong className="font-bold">Error!</strong>
-          <span className="block">{error?.message}</span>
-        </div>
-      )}
-
-      {/* Success Message */}
-      {isSuccess && (
-        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-xl relative mb-4 font-serif text-center select-none drag-none mt-5 ml-11 mr-11">
-          <strong className="font-bold">Success!</strong>
-          <span className="block">
-            Your message has been sent successfully!
-          </span>
-        </div>
-      )}
+      {isError && <ErrorMessage message={error?.message} />}
+      {isSuccess && <SuccessMessage />}
 
       {/* Contact Form Container */}
       <div className="flex items-center justify-center p-10 font-serif">
