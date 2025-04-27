@@ -9,27 +9,27 @@ type FAQItem = {
 
 const faqData: FAQItem[] = [
   {
-    question: "What makes Fizy-Jeli products special?",
+    question: "WHAT MAKES FIZZY-JELI PRODUCTS SPECIAL?",
     answer:
       "Our fizzy jellies and drinks combine minimalist ingredients with maximum fizz for a uniquely clean, refreshing experience.",
   },
   {
-    question: "Are your products vegan?",
+    question: "ARE YOUR PRODUCTS VEGAN?",
     answer:
       "Yes! All Fizy-Jeli products are 100% plant-based and cruelty-free.",
   },
   {
-    question: "How long does shipping take?",
+    question: "HOW LONG DOES SHIPPING TAKE?",
     answer:
       "Orders ship within 1-2 business days. Delivery typically takes 3-5 days in the EU.",
   },
   {
-    question: "Can I recycle the packaging?",
+    question: "CAN I RECYCLE THE PACKAGING?",
     answer:
       "Absolutely. We use 100% recyclable materials with minimal design to reduce waste.",
   },
   {
-    question: "Do you offer sugar-free options?",
+    question: "DO YOU OFFER SUGAR-FREE OPTIONS?",
     answer:
       "Yes, we have a naturally sweetened line using plant-based alternatives.",
   },
@@ -39,19 +39,29 @@ const FaqItem = ({ question, answer }: FAQItem) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-b border-gray-400 py-4 ">
+    <div
+      className={`py-4 px-4 rounded-lg transition-colors duration-200 ${
+        isOpen ? "bg-pink-400" : ""
+      }`}
+    >
       <button
         className="flex w-full items-center justify-between text-left cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <h3 className="font-medium text-pink-400">{question}</h3>
+        <h3
+          className={`text-lg ${
+            isOpen ? "text-purple-200" : "text-pink-400"
+          } font-extrabold `}
+        >
+          {question}
+        </h3>
         <ChevronDownIcon
-          className={`h-5 w-5 text-pink-300 transition-transform duration-200 ${
-            isOpen ? "rotate-180" : ""
+          className={`h-5 w-5 transition-transform duration-200 ${
+            isOpen ? "rotate-180 text-purple-200" : "text-pink-400"
           }`}
         />
       </button>
-      {isOpen && <p className="mt-2 text-pink-600">{answer}</p>}
+      {isOpen && <p className="mt-2 text-purple-200">{answer}</p>}
     </div>
   );
 };

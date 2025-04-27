@@ -24,14 +24,12 @@ export const CardContainer = ({
   };
 
   return (
-    <div
-      className={`flex items-center justify-center p-10 font-serif ${className}`}
-    >
+    <div className={`flex items-center justify-center p-15 m-10  ${className}`}>
       <div
         className={`w-full ${widthClasses[width as keyof typeof widthClasses]}`}
       >
         <div className="bg-purple-200 rounded-2xl shadow-md overflow-hidden select-none drag-none p-10">
-          <div className="p-6 text-center">
+          <div className="p-6 pt-0 text-center">
             <h2 className="text-4xl font-bold text-pink-400 font-chewy mb-6 text-center">
               {title}
             </h2>
