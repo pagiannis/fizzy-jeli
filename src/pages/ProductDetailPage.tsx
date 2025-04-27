@@ -20,7 +20,7 @@ const ProductDetailPage = () => {
   };
 
   const { data: product } = useQuery<Product, Error>({
-    queryKey: ["shop", productId],
+    queryKey: ["products", productId],
     queryFn: fetchProduct,
     staleTime: 1 * 60 * 1000,
   });
