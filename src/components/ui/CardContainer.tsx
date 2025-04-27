@@ -28,7 +28,7 @@ export const CardContainer = ({
       <div
         className={`w-full ${widthClasses[width as keyof typeof widthClasses]}`}
       >
-        <div className="bg-purple-200 rounded-2xl shadow-md overflow-hidden select-none drag-none p-10">
+        <div className="p-15 bg-purple-200 rounded-2xl shadow-md overflow-hidden select-none drag-none">
           <div className="p-6 pt-0 text-center">
             <h2 className="text-4xl font-bold text-pink-400 font-chewy mb-6 text-center">
               {title}
