@@ -31,11 +31,13 @@ export const CardContainer = ({
         className={`w-full ${widthClasses[width as keyof typeof widthClasses]}`}
       >
         <div className="py-8 px-2 md:p-10 lg:p-15 bg-purple-200 rounded-2xl shadow-md overflow-hidden select-none drag-none">
-          <div className="p-2 sm:p-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-pink-400 font-chewy mb-6 text-center">
-              {title}
-            </h2>
-          </div>
+          {title && (
+            <div className="p-2 sm:p-6 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-pink-400 font-chewy mb-6 text-center">
+                {title}
+              </h2>
+            </div>
+          )}
           <div className="text-base md:text-lg">{children}</div>
         </div>
       </div>
