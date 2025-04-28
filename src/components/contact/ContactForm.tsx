@@ -65,7 +65,11 @@ const ContactForm = () => {
             rows={4}
           />
 
-          <Button type="submit" disabled={isSubmitting}>
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            className="mx-auto block w-fit"
+          >
             {isSubmitting ? "Sending..." : "Submit"}
           </Button>
         </form>
