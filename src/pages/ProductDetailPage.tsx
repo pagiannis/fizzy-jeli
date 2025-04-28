@@ -1,9 +1,11 @@
-import useProduct from "../hooks/useProduct";
+import ProductDetails from "../components/shop/ProductDetails";
 
 const ProductDetailPage = () => {
-  const { product } = useProduct();
-
-  return <div className="flex-1">{product?.name}</div>;
+  return (
+    <div className="flex-1">
+      <ProductDetails />
+    </div>
+  );
 };
 
 export default ProductDetailPage;
