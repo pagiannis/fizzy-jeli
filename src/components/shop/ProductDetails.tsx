@@ -86,7 +86,7 @@ const ProductDetails = () => {
             <p className="order-2 lg:order-1 space-y-2 font-chewy text-bold text-white text-center text-lg md:text-2xl bg-[linear-gradient(160deg,rgba(238,130,207,0.74)_0%,rgb(177,124,247)_100%)] p-8 rounded-lg shadow-md">
               {product?.description}
             </p>
-            <p className="lg:pt-7 lg:order-2 font-chewy text-pink-400 text-2xl md:text-4xl mt-2">
+            <p className="lg:pt-7 lg:order-2 font-chewy text-pink-400 text-3xl md:text-4xl lg:mt-2">
               ${product?.price}
             </p>
             <Button className="order-1 lg:order-3 mb-15 md:mt-10 font-chewy text-lg md:text-2xl cursor-pointer">
