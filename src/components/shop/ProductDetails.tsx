@@ -8,7 +8,7 @@ const ProductDetails = () => {
   return (
     <CardContainer width={7} className="p-0 m-0">
       {/* Add min-h-[500px] or similar to establish a height context */}
-      <div className="flex flex-col lg:flex-row gap-8 sm:p-6 min-h-[500px]">
+      <div className="flex flex-col lg:flex-row gap-15 sm:p-6 min-h-[500px]">
         {/* Left column - now properly centered */}
         <div className="lg:order-1 lg:w-1/3 flex items-center justify-center">
           <div className="font-chewy text-pink-400 text-center">
