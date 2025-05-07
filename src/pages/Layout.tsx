@@ -8,7 +8,7 @@ const App = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   return (
-    <div className="flex flex-col min-h-screen  bg-sky-300">
+    <div className="flex flex-col min-h-screen bg-sky-300">
       {/* Navbar */}
       <NavBar onMenuClick={() => setMenuOpen(!menuOpen)} />
 

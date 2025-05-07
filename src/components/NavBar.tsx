@@ -7,44 +7,59 @@ import {
 } from "react-icons/pi";
 import { TiThMenu } from "react-icons/ti";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
+import AuthModal, { AuthModalHandle } from "./auth/AuthModal";
 
 interface Props {
   onMenuClick: () => void;
 }
 
 const NavBar = ({ onMenuClick }: Props) => {
+  const authModal = useRef<AuthModalHandle>(null);
+
   return (
-    <nav className="bg-sky-300 p-3 flex justify-between items-center">
-      <div className="order-1 tems-center">
-        <button
-          onClick={onMenuClick}
-          className="text-pink-100 pr-4 cursor-pointer hover:text-pink-400 select-none drag-none"
-        >
-          <TiThMenu className="block sm:hidden pl-2 sm:pl-4" size={40} />
-          <span className="hidden sm:block text-4xl pl-8 font-chewy">MENU</span>
-        </button>
-      </div>
-      <div className="order-2">
-        <Link to="/">
-          <img
-            src={Logo}
-            alt="Fizzy Jeli Logo"
-            className="h-15 sm:h-25 xl:h-30 hidden sm:block select-none drag-none"
-          />
-        </Link>
-      </div>
-      <div className="order-3 items-center space-x-2 sm:space-x-4 select-none drag-none">
-        <button className="text-2xl text-pink-100 cursor-pointer hover:text-pink-400">
-          <PiUserCircleFill size={34} />
-        </button>
-        <button className="text-2xl text-pink-100 cursor-pointer hover:text-pink-400">
-          <PiHeartStraightFill size={34} />
-        </button>
-        <button className="text-pink-100 cursor-pointer hover:text-pink-400 pr-2 sm:pr-4 md:pr-6 lg:pr-8">
-          <PiShoppingCartSimpleFill size={34} />
-        </button>
-      </div>
-    </nav>
+    <>
+      <nav className="bg-sky-300 p-3 flex justify-between items-center">
+        <div className="order-1 tems-center">
+          <button
+            onClick={onMenuClick}
+            className="text-pink-100 pr-4 cursor-pointer hover:text-pink-400 select-none drag-none"
+          >
+            <TiThMenu className="block sm:hidden pl-2 sm:pl-4" size={40} />
+            <span className="hidden sm:block text-4xl pl-8 font-chewy">
+              MENU
+            </span>
+          </button>
+        </div>
+        <div className="order-2">
+          <Link to="/">
+            <img
+              src={Logo}
+              alt="Fizzy Jeli Logo"
+              className="h-15 sm:h-25 xl:h-30 hidden sm:block select-none drag-none"
+            />
+          </Link>
+        </div>
+        <div className="order-3 items-center space-x-2 sm:space-x-4 select-none drag-none">
+          <button
+            className="text-2xl text-pink-100 cursor-pointer hover:text-pink-400"
+            onClick={() => authModal.current?.open("login")}
+          >
+            <PiUserCircleFill size={34} />
+          </button>
+          <button className="text-2xl text-pink-100 cursor-pointer hover:text-pink-400">
+            <PiHeartStraightFill size={34} />
+          </button>
+          <button className="text-pink-100 cursor-pointer hover:text-pink-400 pr-2 sm:pr-4 md:pr-6 lg:pr-8">
+            <PiShoppingCartSimpleFill size={34} />
+          </button>
+        </div>
+      </nav>
+
+      <AuthModal ref={authModal} />
+
+      {/* Background for the menu button */}
+    </>
   );
 };
 
