@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { RegisterSchema, RegisterFormData} from "../schemas/register.schema";
 import { useMutation } from "@tanstack/react-query";
 import apiClient from "../services/api-client";
+import { useAuth } from "../contexts/AuthContext";
 
 interface UseRegisterOptions {
   onSuccess?: () => void;  // Make it optional with ?
@@ -13,20 +14,26 @@ export const useRegister = ({ onSuccess }: UseRegisterOptions = {}) => {
     resolver: zodResolver(RegisterSchema),
   });
 
+  const { login } = useAuth();
+
   const mutation = useMutation({
-    mutationFn: (data: RegisterFormData) => 
-      apiClient.post("/users", { 
-        username: data.username,
-        email: data.email,
-        password: data.password
-    })
-        .then(res => res.data)
-        .catch(err => {
-            if (typeof err.response?.data === 'string') {
-                throw new Error(err.response.data);
-              }
-              throw new Error("Registration failed. Please try again.");
-            }),
+    mutationFn: async (data: RegisterFormData) => {
+      const { confirmPassword, ...registrationData } = data;
+
+      const res =  await apiClient.post("/users", registrationData);
+      console.log("Registration response:", res);
+
+      const token = res.headers['x-auth-token'];
+      const user = res.data;
+      
+      if (!token || !user) {
+        throw new Error("Registration succeeded but token or user data is missing.");
+      }
+
+      login(token, user);
+
+      return user;
+    },
     onSuccess: () => {
       form.reset();
       onSuccess?.(); // Call the success callback

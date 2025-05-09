@@ -9,6 +9,8 @@ import { TiThMenu } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
 import AuthModal, { AuthModalHandle } from "./auth/AuthModal";
+import { useAuth } from "../contexts/AuthContext";
+import UserDropdown from "./auth/UserDropdown";
 
 interface Props {
   onMenuClick: () => void;
@@ -16,6 +18,7 @@ interface Props {
 
 const NavBar = ({ onMenuClick }: Props) => {
   const authModal = useRef<AuthModalHandle>(null);
+  const { isAuthenticated } = useAuth();
 
   return (
     <>
@@ -41,12 +44,19 @@ const NavBar = ({ onMenuClick }: Props) => {
           </Link>
         </div>
         <div className="order-3 items-center space-x-2 sm:space-x-4 select-none drag-none">
-          <button
-            className="text-2xl text-pink-100 cursor-pointer hover:text-pink-400"
-            onClick={() => authModal.current?.open("login")}
-          >
-            <PiUserCircleFill size={34} />
-          </button>
+          {isAuthenticated ? (
+            <UserDropdown />
+          ) : (
+            <button
+              className="text-2xl text-pink-100 cursor-pointer hover:text-pink-400"
+              onClick={() => {
+                authModal.current?.open("login");
+              }}
+            >
+              <PiUserCircleFill size={34} />
+            </button>
+          )}
+
           <button className="text-2xl text-pink-100 cursor-pointer hover:text-pink-400">
             <PiHeartStraightFill size={34} />
           </button>
