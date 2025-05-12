@@ -5,3 +5,5 @@ Technologies used:
 - JS/TS
 - Tailwind
 - React.js
+
+Backend URL: https://github.com/pagiannis/fizzy-jeli-api
