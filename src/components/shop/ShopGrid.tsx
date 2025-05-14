@@ -6,7 +6,7 @@ import LoadingSpinner from "../ui/LoadingSpinner";
 const ShopGrid = () => {
   const { products, error, isLoading } = useProducts();
 
-  if (isLoading) return <LoadingSpinner />;
+  if (isLoading) return <LoadingSpinner size="large"/>;
   if (error) return <ErrorMessage error={error.message} />;
 
   return (
