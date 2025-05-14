@@ -7,6 +7,7 @@ export const LoginSchema = z.object({
     
   password: z
     .string()
+    .min(1, "Password is required")
 });
 
 export type LoginFormData = z.infer<typeof LoginSchema>;
