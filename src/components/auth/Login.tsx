@@ -29,7 +29,7 @@ const Login = ({ onSuccess, onSwitchToRegister }: Props) => {
       </h2>
 
       <h1 className="text-center text-lg font-medium text-gray-500">
-        Welcome back. Enter you password to continue.
+        Welcome back. Enter your password to continue.
       </h1>
 
       <form className="space-y-5 mx-10 mt-10" onSubmit={handleSubmit(onSubmit)}>
