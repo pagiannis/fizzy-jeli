@@ -72,7 +72,7 @@ const Register = ({ onSuccess, onSwitchToLogin }: Props) => {
         <span>Already have an account? </span>
         <button
           onClick={onSwitchToLogin}
-          className="text-pink-400 font-bold underline ml-2 cursor-pointer"
+          className="text-pink-400 font-bold hover:underline ml-2 cursor-pointer"
         >
           SIGN IN
         </button>

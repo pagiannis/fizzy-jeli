@@ -65,7 +65,7 @@ const Login = ({ onSuccess, onSwitchToRegister }: Props) => {
         <span>New to Fizzy Jeli?</span>
         <button
           onClick={onSwitchToRegister}
-          className="text-pink-400 font-bold underline ml-2 cursor-pointer"
+          className="text-pink-400 font-bold hover:underline ml-2 cursor-pointer"
         >
           REGISTER NOW
         </button>
