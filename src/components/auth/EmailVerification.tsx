@@ -12,9 +12,9 @@ const EmailVerification = ({ email }: Props) => {
         Verify Your Email
       </h2>
 
-      <div className="mb-6">
+      <div className="mb-6 text-xl">
         <p>We've sent a verification link to:</p>
-        <p className="font-semibold text-lg mt-2">{email}</p>
+        <p className="font-semibold text-xl mt-2">{email}</p>
       </div>
 
       <div className="text-center mb-6">
@@ -22,14 +22,14 @@ const EmailVerification = ({ email }: Props) => {
       </div>
 
       <div className="space-y-4 ">
-        <p className="text-gray-600 mb-23">
+        <p className="text-gray-600 mb-23 text-lg">
           Check your inbox and click the link to verify your account.
         </p>
 
         <button
           /*onClick={ }*/
           /*disabled={isResending}*/
-          className="text-pink-500 font-medium hover:underline flex items-center justify-center gap-2 mx-auto cursor-pointer"
+          className="text-pink-500 text-lg font-medium hover:underline flex items-center justify-center gap-2 mx-auto cursor-pointer"
         >
           Resend Verification Email
         </button>
