@@ -1,9 +1,8 @@
 import { useRegister } from "../../hooks/useRegister";
 import Input from "../ui/Input";
-import { useEffect } from "react";
 
 interface Props {
-  onSuccess: () => void;
+  onSuccess: (email: string) => void;
   onSwitchToLogin: () => void; // For switching to login view
 }
 
@@ -12,15 +11,7 @@ const Register = ({ onSuccess, onSwitchToLogin }: Props) => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    onSubmit,
-    isSuccess,
   } = useRegister({ onSuccess });
-
-  useEffect(() => {
-    if (isSuccess) {
-      onSuccess(); // Redirect or show success message
-    }
-  }, [isSuccess, onSuccess]);
 
   return (
     <div>
@@ -32,7 +23,7 @@ const Register = ({ onSuccess, onSwitchToLogin }: Props) => {
         Looks like you're new here, we need a little more info:
       </h1>
 
-      <form className="space-y-5 mx-10 mt-10" onSubmit={handleSubmit(onSubmit)}>
+      <form className="space-y-5 mx-10 mt-10" onSubmit={handleSubmit}>
         <Input
           label="Username"
           type="text"

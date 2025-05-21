@@ -5,7 +5,7 @@ import { useMutation } from "@tanstack/react-query";
 import apiClient from "../services/api-client";
 
 interface UseRegisterOptions {
-  onSuccess?: () => void;  // Make it optional with ?
+  onSuccess?: (email: string) => void;  // Make it optional with ?
 }
 
 export const useRegister = ({ onSuccess }: UseRegisterOptions = {}) => {
@@ -16,31 +16,26 @@ export const useRegister = ({ onSuccess }: UseRegisterOptions = {}) => {
   const mutation = useMutation({
     mutationFn: async (data: RegisterFormData) => {
       const { confirmPassword, ...registrationData } = data;
-
       const res =  await apiClient.post("/users", registrationData);
 
       return res.data;
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
       form.reset();
-      onSuccess?.(); // Call the success callback
+      onSuccess?.(data.email); // Call the success callback
     },
-    onError: (error) => {
+    onError: (error: Error) => {
       // Set form error if needed
       form.setError("root", { message: error.message });
     }
   });
 
-  const onSubmit = (data: RegisterFormData) => {
-    mutation.mutate(data);
-  };
-
   return {
-    ...form,
-    onSubmit,
+    register: form.register,
+    handleSubmit: form.handleSubmit((data) => mutation.mutate(data)),
+    formState: form.formState,
     isSubmitting: mutation.isPending,
-    isError: mutation.isError,
-    error: mutation.error,
     isSuccess: mutation.isSuccess,
+    errors: form.formState.errors,
   };
 };
