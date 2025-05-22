@@ -24,9 +24,14 @@ export const useRegister = ({ onSuccess }: UseRegisterOptions = {}) => {
       form.reset();
       onSuccess?.(data.email); // Call the success callback
     },
-    onError: (error: Error) => {
+    onError: (error: any) => {
+      const message =
+      error.response?.data ||
+      error.response?.data?.message || 
+      "An unexpected error occurred.";
+
       // Set form error if needed
-      form.setError("root", { message: error.message });
+      form.setError("root", { message });
     }
   });
 

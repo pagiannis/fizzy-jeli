@@ -57,7 +57,7 @@ const Register = ({ onSuccess, onSwitchToLogin }: Props) => {
         />
 
         {errors.root && (
-          <p className="text-red-500 text-sm">{errors.root.message}</p>
+          <p className="text-red-500 text-md text-center">{errors.root.message}</p>
         )}
 
         <button
