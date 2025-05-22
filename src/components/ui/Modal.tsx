@@ -31,7 +31,7 @@ const Modal = ({ isOpen, onClose, children }: Props) => {
       />
 
       {/* Modal content with smooth transition */}
-      <div className="relative z-10 bg-white rounded-lg p-6 max-w-lg md:max-w-xl lg:max-w-3xl w-full mx-4 transform transition-all duration-300 ease-in-out opacity-0 scale-95 animate-fadeIn">
+      <div className="relative z-10 bg-white rounded-lg sm:p-6 max-w-lg md:max-w-xl lg:max-w-3xl w-full mx-1 sm:mx-4 transform transition-all duration-300 ease-in-out opacity-0 scale-95 animate-fadeIn">
         <button
           onClick={onClose}
           className="absolute top-3 right-3 text-gray-500 hover:text-gray-900 transition-colors duration-200"
