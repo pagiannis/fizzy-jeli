@@ -32,8 +32,14 @@ const App = () => {
           break;
         case "already":
           toast.custom((t) => (
-            <CustomToast t={t} message="Email already verified!" type="info" />
+            <CustomToast
+              t={t}
+              message="Email already verified! Please login."
+              type="info"
+            />
           ));
+          authModal.current?.open("login");
+
           break;
         case "error":
           toast.custom((t) => (
