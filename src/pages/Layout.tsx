@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar";
 import Sidebar from "../components/SideBar";
 import Footer from "../components/Footer";
 import toast from "react-hot-toast";
+import CustomToast from "../components/ui/CustomToast";
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -16,13 +17,27 @@ const App = () => {
     if (status) {
       switch (status) {
         case "success":
-          toast.success("Email verified successfully!");
+          toast.custom((t) => (
+            <CustomToast
+              t={t}
+              message="Email verified successfully!"
+              type="success"
+            />
+          ));
           break;
         case "already":
-          toast("Email already verified!");
+          toast.custom((t) => (
+            <CustomToast t={t} message="Email already verified!" type="info" />
+          ));
           break;
         case "error":
-          toast.error("Email verification failed!");
+          toast.custom((t) => (
+            <CustomToast
+              t={t}
+              message="Email verification failed!"
+              type="error"
+            />
+          ));
           break;
         default:
           break;
