@@ -1,11 +1,36 @@
-import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Outlet, useNavigate, useSearchParams } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Sidebar from "../components/SideBar";
 import Footer from "../components/Footer";
+import toast from "react-hot-toast";
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const status = searchParams.get("status");
+
+    if (status) {
+      switch (status) {
+        case "success":
+          toast.success("Email verified successfully!");
+          break;
+        case "already":
+          toast("Email already verified!");
+          break;
+        case "error":
+          toast.error("Email verification failed!");
+          break;
+        default:
+          break;
+      }
+
+      navigate("/", { replace: true });
+    }
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-sky-300">
