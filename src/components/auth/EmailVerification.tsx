@@ -11,10 +11,7 @@ type Props = {
 const EmailVerification = ({ email }: Props) => {
   const {
     mutate: resendVerificationEmail,
-    isPending,
-    isSuccess,
-    isError,
-    error,
+    isPending
   } = useVerifyEmailResend();
 
   const handleResend = () => {
@@ -63,9 +60,11 @@ const EmailVerification = ({ email }: Props) => {
         <button
           onClick={handleResend}
           disabled={isPending}
-          className="text-pink-500 text-lg font-medium hover:underline flex items-center justify-center gap-2 mx-auto cursor-pointer"
+          className={`text-pink-500 text-lg font-medium hover:underline flex items-center justify-center gap-2 mx-auto cursor-pointer ${
+            isPending ? "opacity-50 cursor-not-allowed" : ""
+          }`}
         >
-          Resend Verification Email
+          {isPending ? "Sending..." : "Resend Verification Email"}
         </button>
       </div>
     </div>
