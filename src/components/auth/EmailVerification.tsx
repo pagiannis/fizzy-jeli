@@ -1,4 +1,7 @@
 import { MdEmail } from "react-icons/md";
+import useVerifyEmailResend from "../../hooks/useVerifyEmailResend";
+import CustomToast from "../ui/CustomToast";
+import { toast } from "react-hot-toast";
 
 type Props = {
   email: string;
@@ -6,6 +9,37 @@ type Props = {
 };
 
 const EmailVerification = ({ email }: Props) => {
+  const {
+    mutate: resendVerificationEmail,
+    isPending,
+    isSuccess,
+    isError,
+    error,
+  } = useVerifyEmailResend();
+
+  const handleResend = () => {
+    resendVerificationEmail(email, {
+      onSuccess: () => {
+        toast.custom((t) => (
+          <CustomToast
+            t={t}
+            message="Verification email sent!"
+            type="success"
+          />
+        ));
+      },
+      onError: (err: any) => {
+        const message =
+          typeof err.response?.data === "string"
+            ? err.response.data
+            : err.response?.data?.message || "Something went wrong.";
+        toast.custom((t) => (
+          <CustomToast t={t} message={message} type="error" />
+        ));
+      },
+    });
+  };
+
   return (
     <div className="text-center p-6">
       <h2 className="text-3xl font-bold text-pink-500 mb-10">
@@ -27,8 +61,8 @@ const EmailVerification = ({ email }: Props) => {
         </p>
 
         <button
-          /*onClick={ }*/
-          /*disabled={isResending}*/
+          onClick={handleResend}
+          disabled={isPending}
           className="text-pink-500 text-lg font-medium hover:underline flex items-center justify-center gap-2 mx-auto cursor-pointer"
         >
           Resend Verification Email
