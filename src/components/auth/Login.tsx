@@ -53,6 +53,19 @@ const Login = ({ onSuccess, onSwitchToRegister }: Props) => {
           error={errors.password}
         />
 
+        <div className="flex flex-row-reverse">
+          <button
+            type="button"
+            onClick={() => {
+              // Handle forgot password logic here
+              alert("Forgot password functionality is not implemented yet.");
+            }}
+            className=" text-pink-300 font-bold hover:underline text-md font-medium mr-1 block cursor-pointer"
+          >
+            Forgot Password?
+          </button>
+        </div>
+
         <button
           type="submit"
           className="mx-auto block w-fit mt-10 py-3 px-8 bg-pink-400 hover:bg-pink-500 text-white font-bold rounded-lg transition-colors shadow-md cursor-pointer"
@@ -61,7 +74,7 @@ const Login = ({ onSuccess, onSwitchToRegister }: Props) => {
         </button>
       </form>
 
-      <div className="text-center text-md font-medium text-gray-500 pt-20 pb-4">
+      <div className="text-center text-md font-medium text-gray-500 pt-14 pb-4">
         <span>New to Fizzy Jeli?</span>
         <button
           onClick={onSwitchToRegister}
