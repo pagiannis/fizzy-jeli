@@ -60,7 +60,7 @@ const Login = ({ onSuccess, onSwitchToRegister }: Props) => {
               // Handle forgot password logic here
               alert("Forgot password functionality is not implemented yet.");
             }}
-            className=" text-pink-300 font-bold hover:underline text-md font-medium mr-1 block cursor-pointer"
+            className="text-pink-400 font-bold hover:underline text-md font-medium mr-1 block cursor-pointer"
           >
             Forgot Password?
           </button>
