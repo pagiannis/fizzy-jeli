@@ -5,9 +5,14 @@ import { useEffect } from "react";
 interface Props {
   onSuccess: () => void;
   onSwitchToRegister: () => void;
+  onSwitchToForgotPassword: () => void;
 }
 
-const Login = ({ onSuccess, onSwitchToRegister }: Props) => {
+const Login = ({
+  onSuccess,
+  onSwitchToRegister,
+  onSwitchToForgotPassword,
+}: Props) => {
   const {
     register,
     handleSubmit,
@@ -56,10 +61,7 @@ const Login = ({ onSuccess, onSwitchToRegister }: Props) => {
         <div className="flex flex-row-reverse">
           <button
             type="button"
-            onClick={() => {
-              // Handle forgot password logic here
-              alert("Forgot password functionality is not implemented yet.");
-            }}
+            onClick={onSwitchToForgotPassword}
             className="text-pink-400 font-bold hover:underline text-md font-medium mr-1 block cursor-pointer"
           >
             Forgot Password?
