@@ -1,22 +1,27 @@
 import toast from "react-hot-toast";
 import Input from "../ui/Input";
-import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { useSendResetCode } from "../../hooks/useResetPassword";
+import {
+  ForgotPasswordFormData,
+  forgotPasswordSchema,
+} from "../../schemas/forgotPassword.schema";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const ForgotPassword = () => {
-  const [email, setEmail] = useState("");
   const { mutateAsync: sendResetCode, isPending } = useSendResetCode();
 
-  const handleSendCode = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ForgotPasswordFormData>({
+    resolver: zodResolver(forgotPasswordSchema),
+  });
 
-    if (!email) {
-      toast.error("Please enter your email.");
-      return;
-    }
-
+  const onSubmit = async (data: ForgotPasswordFormData) => {
     try {
-      await sendResetCode(email);
+      await sendResetCode(data.email);
       toast.success("Verification code sent!");
     } catch (err: any) {
       toast.error(err.message || "Failed to send code");
@@ -24,16 +29,16 @@ const ForgotPassword = () => {
   };
 
   return (
-    <form className="space-y-5 mx-10 mt-10" onSubmit={handleSendCode}>
+    <form className="space-y-5 mx-10 mt-10" onSubmit={handleSubmit(onSubmit)}>
       <h1 className="text-center text-lg font-medium text-gray-500">
-        Well sent an email to verify your account.
+        We'll send an email to verify your account.
       </h1>
       <Input
         label="Email"
         type="text"
         placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        {...register("email")}
+        error={errors.email}
       />
       <button
         type="submit"
