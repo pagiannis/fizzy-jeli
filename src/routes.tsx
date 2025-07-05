@@ -10,6 +10,7 @@ import FaqPage from "./pages/FaqPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import AuthModal from "./components/auth/AuthModal";
 import { Outlet } from "react-router-dom";
+import ResetPasswordRedirectPage from "./pages/ResetPasswordRedirectPage";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/faq",
         element: <FaqPage />,
+      },
+      {
+        path: "/reset-password",
+        element: <ResetPasswordRedirectPage />,
       },
     ],
   },
