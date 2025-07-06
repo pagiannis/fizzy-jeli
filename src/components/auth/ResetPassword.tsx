@@ -7,11 +7,9 @@ import {
   resetPasswordSchema,
 } from "../../schemas/resetPasssword.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AuthModalHandle } from "../../components/auth/AuthModal";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 const ResetPassword = () => {
-  const authModal = useRef<AuthModalHandle>(null);
 
   const { mutateAsync: resetPassword, isPending } = useResetPassword();
 
@@ -28,7 +26,6 @@ const ResetPassword = () => {
 
   useEffect(() => {
     if (!token) {
-      toast.error("Invalid or expired token.");
       setIsValidToken(false);
     } else {
       setIsValidToken(true);
@@ -41,10 +38,14 @@ const ResetPassword = () => {
         newPassword: data.password,
         token: token!,
       });
-      toast.success("Password reset successfully!");
-      sessionStorage.removeItem("reset-token");
 
-      authModal?.current?.open("login");
+      toast.success("Password reset successfully!");
+
+      // Wait a bit before removing token so the toast shows and page doesn't react immediately
+      setTimeout(() => {
+        sessionStorage.removeItem("reset-token");
+        window.location.href = "/"; // or navigate("/")
+      }, 1500);
     } catch (err: any) {
       toast.error(err.message || "Failed to reset password");
     }
