@@ -5,8 +5,14 @@ import Login from "./Login";
 import Register from "./Register";
 import EmailVerification from "./EmailVerification";
 import ForgotPassword from "./ForgotPassword";
+import ResetPassword from "./ResetPassword";
 
-type AuthMode = "login" | "register" | "email-verification" | "forgot-password";
+type AuthMode =
+  | "login"
+  | "register"
+  | "email-verification"
+  | "forgot-password"
+  | "reset-password";
 
 export type AuthModalHandle = {
   open: (mode?: AuthMode) => void;
@@ -47,9 +53,11 @@ const AuthModal = forwardRef<AuthModalHandle>((_, ref) => {
           email={registeredEmail}
           onClose={() => setIsOpen(false)}
         />
-      ) : (
+      ) : mode == "forgot-password" ? (
         <ForgotPassword />
-      )}
+      ) : mode == "reset-password" ? (
+        <ResetPassword />
+      ) : null}
     </Modal>
   );
 });
