@@ -44,7 +44,7 @@ const ResetPassword = () => {
       // Wait a bit before removing token so the toast shows and page doesn't react immediately
       setTimeout(() => {
         sessionStorage.removeItem("reset-token");
-        window.location.href = "/"; // or navigate("/")
+        window.location.href = "/";
       }, 1500);
     } catch (err: any) {
       toast.error(err.message || "Failed to reset password");
