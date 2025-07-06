@@ -1,32 +1,60 @@
 import Input from "../ui/Input";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
-/*import { useResetPassword } from "../../hooks/useResetPassword";*/
+import { useResetPassword } from "../../hooks/useResetPassword";
 import {
   ResetPasswordFormData,
   resetPasswordSchema,
 } from "../../schemas/resetPasssword.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { AuthModalHandle } from "../../components/auth/AuthModal";
+import { useEffect, useState, useRef } from "react";
 
 const ResetPassword = () => {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors},
-    } = useForm<ResetPasswordFormData>({
-        resolver: zodResolver(resetPasswordSchema),
-    });
+  const authModal = useRef<AuthModalHandle>(null);
 
-    const onSubmit = async (data: ResetPasswordFormData) => {
-        try {
-            // await resetPassword(data);
-            toast.success("Password reset successfully!");
-        } catch (err: any) {
-            toast.error(err.message || "Failed to reset password");
-        }
-    };
+  const { mutateAsync: resetPassword, isPending } = useResetPassword();
 
-    return (
+  const [isValidToken, setIsValidToken] = useState<boolean | null>(null);
+  const token = sessionStorage.getItem("reset-token");
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ResetPasswordFormData>({
+    resolver: zodResolver(resetPasswordSchema),
+  });
+
+  useEffect(() => {
+    if (!token) {
+      toast.error("Invalid or expired token.");
+      setIsValidToken(false);
+    } else {
+      setIsValidToken(true);
+    }
+  }, [token]);
+
+  const onSubmit = async (data: ResetPasswordFormData) => {
+    try {
+      await resetPassword({
+        newPassword: data.password,
+        token: token!,
+      });
+      toast.success("Password reset successfully!");
+      sessionStorage.removeItem("reset-token");
+
+      authModal?.current?.open("login");
+    } catch (err: any) {
+      toast.error(err.message || "Failed to reset password");
+    }
+  };
+
+  if (isValidToken === false)
+    return <p className="text-center p-6">Token is missing or expired.</p>;
+  if (isValidToken === null) return null;
+
+  return (
     <form className="space-y-5 mx-10 mt-10" onSubmit={handleSubmit(onSubmit)}>
       <h1 className="text-center text-lg font-medium text-gray-500">
         Please enter your new password.
@@ -40,10 +68,10 @@ const ResetPassword = () => {
       />
       <button
         type="submit"
-        /*disabled={isPending}*/
+        disabled={isPending}
         className="mx-auto block w-fit mt-15 py-3 px-8 mb-18 bg-pink-400 hover:bg-pink-500 text-white font-bold rounded-lg transition-colors shadow-md cursor-pointer"
       >
-        {true ? "Changing..." : "Change Password"}
+        {isPending ? "Resetting..." : "Reset Password"}
       </button>
     </form>
   );

@@ -8,3 +8,11 @@ export const useSendResetCode = () => {
         }
     });
 }
+
+export const useResetPassword = () => {
+    return useMutation({
+        mutationFn: (data: { newPassword: string; token: string }) => {
+            return apiClient.patch('/forgot-password/reset-password', data);
+        }
+    });
+};
