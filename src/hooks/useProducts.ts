@@ -1,13 +1,6 @@
 import apiClient from "../services/api-client";
 import { useQuery } from "@tanstack/react-query";
-
-export interface Product {
-  _id: string;
-  name: string;
-  price: number;
-  image: string;
-  secondaryImage?: string;
-}
+import { Product } from "./useProduct";
 
 const useProducts = () => {
   return useQuery<Product[], Error>({
