@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Product } from "../../hooks/useProducts";
+import { Product } from "../../hooks/useProduct";
 import { useState } from "react";
 
 interface Props {
