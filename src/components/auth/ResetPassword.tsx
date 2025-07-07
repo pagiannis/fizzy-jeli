@@ -61,9 +61,9 @@ const ResetPassword = () => {
         Please enter your new password.
       </h1>
       <Input
-        label="Password"
+        label="New Password"
         type="password"
-        placeholder="Password"
+        placeholder="New Password"
         {...register("password")}
         error={errors.password}
       />
