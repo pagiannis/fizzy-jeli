@@ -14,22 +14,14 @@ export interface Product {
 const useProduct = () => {
   const { productId } = useParams();
 
-  const fetchProduct = async () => {
-    try {
-      const response = await apiClient.get<Product>(`/products/${productId}`);
-      return response.data;
-    } catch (err) {
-      throw new Error("Failed to fetch product");
-    }
-  };
-
-  const { data: product } = useQuery<Product, Error>({
+  return useQuery<Product, Error>({
     queryKey: ["products", productId],
-    queryFn: fetchProduct,
+    queryFn: () =>
+      apiClient
+        .get<Product>(`/products/${productId}`)
+        .then((res) => res.data),
     staleTime: 1 * 60 * 1000,
   });
-
-  return { product };
 }
 
 export default useProduct;

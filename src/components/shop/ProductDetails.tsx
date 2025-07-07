@@ -4,7 +4,7 @@ import Button from "../ui/Button";
 import { CardContainer } from "../ui/CardContainer";
 
 const ProductDetails = () => {
-  const { product } = useProduct();
+  const { data: product } = useProduct();
   const [asteroids, setAsteroids] = useState<
     {
       id: number;
