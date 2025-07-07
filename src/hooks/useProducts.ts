@@ -10,26 +10,14 @@ export interface Product {
 }
 
 const useProducts = () => {
-  const fetchProducts = async () => {
-    try {
-      const response = await apiClient.get<Product[]>("/products");
-      return response.data;
-    } catch (error) {
-      throw new Error("Failed to fetch products");
-    }
-  };
-  
-  const { 
-    data : products, 
-    error, 
-    isLoading
-  } = useQuery<Product[], Error>({
+  return useQuery<Product[], Error>({
     queryKey: ["products"],
-    queryFn: fetchProducts,
+    queryFn: () =>
+      apiClient
+        .get<Product[]>("/products")
+        .then((res) => res.data),
     staleTime: 1 * 60 * 1000 // 1 minute cache
-  })
-
-  return { products, error, isLoading };
-}
+  });
+};
 
 export default useProducts;

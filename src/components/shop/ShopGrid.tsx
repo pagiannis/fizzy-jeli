@@ -4,7 +4,7 @@ import ErrorMessage from "../ui/ErrorMessage";
 import LoadingSpinner from "../ui/LoadingSpinner";
 
 const ShopGrid = () => {
-  const { products, error, isLoading } = useProducts();
+  const { data: products, error, isLoading } = useProducts();
 
   if (isLoading) return <LoadingSpinner size="large"/>;
   if (error) return <ErrorMessage error={error.message} />;
