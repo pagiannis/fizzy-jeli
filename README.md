@@ -2,12 +2,22 @@
 
 An experimental web app built with React + Vite that lets users explore interactive jelly-like UI elements.
 
+---
+
 ## 📸 Demo
 
-<!-- Uncomment this line if you add a live link -->
-<!-- [Live Demo](https://your-live-site-url.com) -->
+<table>
+  <tr>
+    <td>
+      <img src="./public/home_page_screenshot.png" alt="Home Page" width="500" />
+    </td>
+    <td>
+      <img src="./public/shop_page_sceenshot.png" alt="Shop Page" width="500" />
+    </td>
+  </tr>
+</table>
 
-![screenshot](./screenshot.png)
+---
 
 ## ✨ Features
 
@@ -15,12 +25,16 @@ An experimental web app built with React + Vite that lets users explore interact
 - Simple, modern design
 - Built using React, Vite, and Tailwind CSS
 
+---
+
 ## 🚀 Tech Stack
 
 - [React](https://reactjs.org/)
 - [Vite](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- TypeScript (if applicable)
+- TypeScript
+
+---
 
 ## 📁 Folder Structure
 
@@ -35,6 +49,10 @@ fizzy-jeli/
 ├── vite.config.js
 └── README.md
 
+---
+
 ## Backend Code URL
 
 https://github.com/pagiannis/fizzy-jeli-api
+
+---
