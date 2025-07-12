@@ -58,6 +58,42 @@ https://github.com/pagiannis/fizzy-jeli-api
 
 ## Quick Start
 
+1. **Clone the project**:
+
+```bash
+git clone https://github.com/pagiannis/fizzy-jeli.git
+cd fizzy-jeli
+```
+
+2. **Install dependencies**:
+
+```bash
+npm install
+```
+
+3. **Set up the backend**:
+
+This project depends on a separate backend API. You can find it here:
+[fizzy-jeli-api](https://github.com/pagiannis/fizzy-jeli-api)
+Follow the setup instructions in that repository to start the API server locally (usually runs at http://localhost:3000 or similar).
+Make sure the backend is running before starting the frontend.
+
+4. **Set up .env file**:
+
+Create a .env file inside the fizy-jeli folder with the following:
+```env
+VITE_API_CLIENT_BASE_URL = 'http://localhost:3000/api'
+FRONTEND_BASE_URL = 'http://localhost:5173'
+```
+
+5. **Run the app**:
+
+```bash
+npm run dev
+```
+
+---
+
 ## Author
 
 Made by Papadopoulos Giannis
