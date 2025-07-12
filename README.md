@@ -21,6 +21,14 @@ A full stack e-shop built with React + Tailwind for frontend with creative desig
     </figure>
     </td>
   </tr>
+  <tr>
+    <td>
+    <figure>
+      <img src="./public/login_modal_screenshot.png" alt="Login Modal" width="500" />
+      <figcaption align="center"><em>Login Modal</em></figcaption>
+    </figure>
+    </td>
+  </tr>
 </table>
 
 ---
