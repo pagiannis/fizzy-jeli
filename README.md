@@ -80,6 +80,8 @@ Follow the setup instructions in that repository to start the API server locally
 
 Make sure the backend is running before starting the frontend.
 
+
+
 4. **Set up .env file**:
 
 Create a .env file inside the fizy-jeli folder with the following:
