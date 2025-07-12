@@ -75,12 +75,8 @@ npm install
 
 This project depends on a separate backend API. You can find it here:
 [fizzy-jeli-api](https://github.com/pagiannis/fizzy-jeli-api).
-
 Follow the setup instructions in that repository to start the API server locally (usually runs at http://localhost:3000 or similar).
-
 Make sure the backend is running before starting the frontend.
-
-
 
 4. **Set up .env file**:
 
