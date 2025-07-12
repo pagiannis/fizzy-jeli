@@ -1,10 +1,10 @@
 # fizzy-jeli 🍇
 
-An experimental web app built with React + Vite that lets users explore interactive jelly-like UI elements.
+A full stack e-shop built with React + Tailwind for frontend with creative design and node/express.js + MongoDB for backend. You can find the backend code + documentation [here](https://github.com/pagiannis/fizzy-jeli-api.git)
 
 ---
 
-## 📸 Demo
+## Screenshots
 
 <table>
   <tr>
@@ -21,7 +21,7 @@ An experimental web app built with React + Vite that lets users explore interact
 
 ## ✨ Features
 
-- Interactive jelly UI animation
+- Interactive Jelly-UI animations
 - Simple, modern design
 - Built using React, Vite, and Tailwind CSS
 
@@ -33,6 +33,9 @@ An experimental web app built with React + Vite that lets users explore interact
 - [Vite](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - TypeScript
+- react-hook-form
+- axios
+- react-router
 
 ---
 
