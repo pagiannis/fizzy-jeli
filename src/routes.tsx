@@ -9,7 +9,6 @@ import AboutPage from "./pages/AboutPage";
 import FaqPage from "./pages/FaqPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import AuthModal from "./components/auth/AuthModal";
-import { Outlet } from "react-router-dom";
 import ResetPasswordRedirectPage from "./pages/ResetPasswordRedirectPage";
 import FavouritesPage from "./pages/FavouritesPage";
 
@@ -68,7 +67,7 @@ function ProtectedLayout() {
     return <AuthModal />;
   }
 
-  return <Outlet />;
+  return <Layout />;
 }
 
 export default router;

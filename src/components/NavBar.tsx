@@ -6,7 +6,7 @@ import {
   PiShoppingCartSimpleFill,
 } from "react-icons/pi";
 import { TiThMenu } from "react-icons/ti";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import AuthModal, { AuthModalHandle } from "./auth/AuthModal";
 import { useAuth } from "../contexts/AuthContext";

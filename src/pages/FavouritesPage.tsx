@@ -1,9 +1,5 @@
-
-
 const FavouritesPage = () => {
-  return (
-    <div>FavouritesPage</div>
-  )
-}
+  return <div className="flex-1">FavouritesPage</div>;
+};
 
-export default FavouritesPage
+export default FavouritesPage;
