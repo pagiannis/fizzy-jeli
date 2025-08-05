@@ -6,7 +6,7 @@ import {
   PiShoppingCartSimpleFill,
 } from "react-icons/pi";
 import { TiThMenu } from "react-icons/ti";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import AuthModal, { AuthModalHandle } from "./auth/AuthModal";
 import { useAuth } from "../contexts/AuthContext";
@@ -19,6 +19,7 @@ interface Props {
 const NavBar = ({ onMenuClick }: Props) => {
   const authModal = useRef<AuthModalHandle>(null);
   const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -57,7 +58,14 @@ const NavBar = ({ onMenuClick }: Props) => {
             </button>
           )}
 
-          <button className="text-2xl text-pink-100 cursor-pointer hover:text-pink-400">
+          <button
+            className="text-2xl text-pink-100 cursor-pointer hover:text-pink-400"
+            onClick={() =>
+              isAuthenticated
+                ? navigate("/favourites")
+                : authModal.current?.open("login")
+            }
+          >
             <PiHeartStraightFill size={34} />
           </button>
           <button className="text-pink-100 cursor-pointer hover:text-pink-400 pr-2 sm:pr-4 md:pr-6 lg:pr-8">

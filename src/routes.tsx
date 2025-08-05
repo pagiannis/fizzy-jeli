@@ -11,6 +11,7 @@ import ProductDetailPage from "./pages/ProductDetailPage";
 import AuthModal from "./components/auth/AuthModal";
 import { Outlet } from "react-router-dom";
 import ResetPasswordRedirectPage from "./pages/ResetPasswordRedirectPage";
+import FavouritesPage from "./pages/FavouritesPage";
 
 const router = createBrowserRouter([
   {
@@ -54,7 +55,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/favourites",
-        element: <div>Favourites Page</div>,
+        element: <FavouritesPage />,
       },
     ],
   },
