@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { Product } from "../../hooks/useProduct";
 import { useState } from "react";
+import useFavourites from "../../hooks/useFavourites";
+import useToggleFavourite from "../../hooks/useToogleFavourite";
+import { PiHeartStraightFill } from "react-icons/pi";
 
 interface Props {
   product: Product;
@@ -8,6 +11,11 @@ interface Props {
 
 const ProductCard = ({ product }: Props) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  const { data: favourites } = useFavourites();
+  const toggleFavourite = useToggleFavourite();
+
+  const isFavourite = favourites?.some((f) => f._id === product._id) ?? false;
 
   // Generate bubbles with more visibility
   const bubbles = Array.from({ length: 12 }).map((_, i) => ({
@@ -40,6 +48,20 @@ const ProductCard = ({ product }: Props) => {
             }}
           />
         </div>
+
+        {/* Heart favourite button */}
+        <button
+          onClick={(e) => {
+            e.preventDefault(); // prevent <Link> navigation
+            toggleFavourite.mutate(product._id);
+          }}
+          className="absolute top-3 right-3 z-20 flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-md hover:scale-105 transition cursor-pointer select-none drag-none"
+        >
+          <PiHeartStraightFill
+            size={22}
+            className={isFavourite ? "fill-red-400 text-red-400" : "text-gray-300"}
+          />
+        </button>
 
         {/* bubbles */}
         {bubbles.map((bubble) => (
