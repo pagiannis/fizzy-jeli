@@ -21,7 +21,7 @@ createRoot(document.getElementById("root")!).render(
             duration: 4000,
           }}
         />
-        <ReactQueryDevtools />
+        {import.meta.env.DEV && <ReactQueryDevtools initialIsOpen={false} />}
       </AuthProvider>
     </QueryClientProvider>
   </StrictMode>
