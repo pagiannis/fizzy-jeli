@@ -14,7 +14,7 @@ const bgColorMap = {
   info: "bg-yellow-200 text-gray-700",
 };
 
-const CustomToast: React.FC<CustomToastProps> = ({ t, message, type }) => {
+const CustomToast: React.FC<CustomToastProps> = ({ message, type }) => {
   return (
     <div
       className={`rounded-2xl shadow-lg px-5 py-3 font-chewy text-2xl flex items-center gap-3 animate-fade-in-up ${bgColorMap[type]}`}
