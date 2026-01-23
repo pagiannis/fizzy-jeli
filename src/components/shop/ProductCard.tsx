@@ -11,7 +11,12 @@ interface Props {
 }
 
 const ProductCard = ({ product }: Props) => {
+  const [imgLoaded, setImgLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+
+  const currentImage = isHovered
+    ? product.secondaryImage || product.image
+    : product.image;
 
   const { isAuthenticated } = useAuth();
 
@@ -89,18 +94,28 @@ const ProductCard = ({ product }: Props) => {
 
         {/* Product image container */}
         <div className="cursor-pointer relative z-10 h-full flex flex-col items-center justify-center p-6">
-          <img
-            src={
-              isHovered
-                ? product.secondaryImage || product.image
-                : product.image
-            }
-            alt={product.name}
-            className="w-full h-auto max-h-72 object-contain transition-all duration-500 mix-blend-multiply group-hover:mix-blend-normal"
-            style={{
-              filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.1))",
-            }}
-          />
+          <div className="relative w-full h-72 flex items-center justify-center">
+            {/* Skeleton */}
+            {!imgLoaded && (
+              <div className="absolute inset-0 rounded-lg bg-white/40 animate-pulse" />
+            )}
+
+            <img
+              key={currentImage}
+              src={currentImage}
+              alt={product.name}
+              loading="lazy"
+              onLoad={() => setImgLoaded(true)}
+              onError={() => setImgLoaded(true)}
+              className={`w-full h-auto max-h-72 object-contain transition-opacity duration-500 mix-blend-multiply group-hover:mix-blend-normal ${
+                imgLoaded ? "opacity-100" : "opacity-0"
+              }`}
+              style={{
+                filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.1))",
+              }}
+            />
+          </div>
+
           <p className="mt-2 text-center text-white font-chewy text-2xl">
             {product.name.toUpperCase()}
           </p>
